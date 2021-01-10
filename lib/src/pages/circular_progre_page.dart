@@ -3,12 +3,12 @@ import 'dart:math' as Math;
 
 import 'package:flutter/material.dart';
 
-class CircularProgressPage extends StatefulWidget {
+class CircularProgrePage extends StatefulWidget {
   @override
-  _CircularProgressPageState createState() => _CircularProgressPageState();
+  _CircularProgrePageState createState() => _CircularProgrePageState();
 }
 
-class _CircularProgressPageState extends State<CircularProgressPage>
+class _CircularProgrePageState extends State<CircularProgrePage>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 

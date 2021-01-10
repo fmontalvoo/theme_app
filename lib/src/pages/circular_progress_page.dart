@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:themes_app/src/widgets/radial_progress_indicator.dart';
 
-class HomePage extends StatefulWidget {
+class CircularProgressPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _CircularProgressPageState createState() => _CircularProgressPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CircularProgressPageState extends State<CircularProgressPage> {
   double porcentaje = 0.0;
   @override
   Widget build(BuildContext context) {
