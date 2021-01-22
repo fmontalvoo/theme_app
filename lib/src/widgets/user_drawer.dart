@@ -10,7 +10,7 @@ class UserDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeChanger>(context);
-
+    final theme = Theme.of(context);
     return Drawer(
       child: Container(
         child: Column(
@@ -21,6 +21,7 @@ class UserDrawer extends StatelessWidget {
                 width: double.infinity,
                 height: 200.0,
                 child: CircleAvatar(
+                  backgroundColor: theme.accentColor,
                   child: Text('FM', style: TextStyle(fontSize: 50.0)),
                 ),
               ),
@@ -30,10 +31,10 @@ class UserDrawer extends StatelessWidget {
             ),
             ListTile(
               title: Text('Dark Mode'),
-              leading: Icon(Icons.lightbulb_outline, color: Colors.blue),
+              leading: Icon(Icons.lightbulb_outline, color: theme.accentColor),
               trailing: Switch.adaptive(
                   value: appTheme.getDarkTheme,
-                  activeColor: Colors.blue,
+                  activeColor: theme.accentColor,
                   onChanged: (value) => appTheme.setDarkTheme = value),
             ),
             SafeArea(
@@ -41,10 +42,11 @@ class UserDrawer extends StatelessWidget {
               top: false,
               child: ListTile(
                 title: Text('Custom Theme'),
-                leading: Icon(Icons.add_to_home_screen, color: Colors.blue),
+                leading:
+                    Icon(Icons.add_to_home_screen, color: theme.accentColor),
                 trailing: Switch.adaptive(
                     value: appTheme.getCustomTheme,
-                    activeColor: Colors.blue,
+                    activeColor: theme.accentColor,
                     onChanged: (value) => appTheme.setCustomTheme = value),
               ),
             ),

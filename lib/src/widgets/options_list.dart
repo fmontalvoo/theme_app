@@ -7,17 +7,18 @@ class OptionsList extends StatelessWidget {
   final appRoutes = AppRoutes.appRoutes;
   @override
   Widget build(BuildContext context) {
+    final appTheme = Theme.of(context);
     return ListView.separated(
       physics: BouncingScrollPhysics(),
       itemCount: appRoutes.length,
       separatorBuilder: (context, i) => Divider(
-        color: Colors.blue,
+        color: appTheme.primaryColorLight,
       ),
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
           title: Text(appRoutes[index].title),
-          leading: FaIcon(appRoutes[index].icon, color: Colors.blue),
-          trailing: Icon(Icons.chevron_right, color: Colors.blue),
+          leading: FaIcon(appRoutes[index].icon, color: appTheme.accentColor),
+          trailing: Icon(Icons.chevron_right, color: appTheme.accentColor),
           onTap: () {
             Navigator.push(
                 context,

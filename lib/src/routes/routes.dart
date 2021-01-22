@@ -34,7 +34,7 @@ class AppRoutes {
         page: CircularProgressPage()),
     _Route(
         icon: FontAwesomeIcons.pinterest,
-        title: "Pinteres",
+        title: "Pinterest",
         page: PinterestPage()),
     _Route(
         icon: FontAwesomeIcons.mobile,

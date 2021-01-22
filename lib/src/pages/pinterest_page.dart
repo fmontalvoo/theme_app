@@ -17,40 +17,42 @@ class PinterestPage extends StatelessWidget {
         child: Builder(
           builder: (BuildContext context) {
             // print(Provider.of<MenuStateModel>(context).getShowMenu);
-            return _body(Provider.of<MenuStateModel>(context).getShowMenu);
+            return _body(
+                context, Provider.of<MenuStateModel>(context).getShowMenu);
           },
         ),
       ),
     );
   }
 
-  Widget _body(bool show) {
+  Widget _body(BuildContext context, bool show) {
+    final theme = Theme.of(context);
     return Stack(
       children: [
         PinterestGrid(),
         PinterestMenu(
-          backgroundColor: Colors.white70,
+          backgroundColor: theme.scaffoldBackgroundColor,
           showMenu: show,
           items: [
             PinterestMenuItem(
                 icon: Icon(Icons.camera),
-                selectedColor: Colors.deepPurple,
-                unSelectedColor: Colors.blueGrey,
+                selectedColor: theme.accentColor,
+                // unSelectedColor: Colors.blueGrey,
                 onPressed: () {}),
             PinterestMenuItem(
                 icon: Icon(Icons.search),
-                selectedColor: Colors.deepPurple,
-                unSelectedColor: Colors.blueGrey,
+                selectedColor: theme.accentColor,
+                // unSelectedColor: Colors.blueGrey,
                 onPressed: () {}),
             PinterestMenuItem(
                 icon: Icon(Icons.notifications),
-                selectedColor: Colors.deepPurple,
-                unSelectedColor: Colors.blueGrey,
+                selectedColor: theme.accentColor,
+                // unSelectedColor: Colors.blueGrey,
                 onPressed: () {}),
             PinterestMenuItem(
                 icon: Icon(Icons.account_circle),
-                selectedColor: Colors.deepPurple,
-                unSelectedColor: Colors.blueGrey,
+                selectedColor: theme.accentColor,
+                // unSelectedColor: Colors.blueGrey,
                 onPressed: () {}),
           ],
         )

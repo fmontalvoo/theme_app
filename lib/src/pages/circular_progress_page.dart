@@ -11,6 +11,7 @@ class _CircularProgressPageState extends State<CircularProgressPage> {
   double porcentaje = 0.0;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       body: Center(
         child: Container(
@@ -18,8 +19,8 @@ class _CircularProgressPageState extends State<CircularProgressPage> {
             height: 250.0,
             child: RadialProgressIndicator(
               percentage: porcentaje,
-              outStrokeColor: Colors.blue,
-              inStrokeColor: Colors.grey,
+              // outStrokeColor: Colors.amber,
+              inStrokeColor: theme.textTheme.bodyText1.color,
               inStrokeWitdh: 5.0,
               outStrokeWitdh: 10.0,
               gradient: LinearGradient(colors: <Color>[

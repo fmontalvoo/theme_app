@@ -7,11 +7,12 @@ import 'package:themes_app/src/widgets/slide_show.dart';
 class SlideShowPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: SlideShow(
-        primaryColor: Colors.red,
-        secondaryColor: Colors.white,
+        primaryColor: theme.accentColor,
+        // secondaryColor: Colors.white,
         children: [
           SvgPicture.asset('lib/assets/images/slide-1.svg'),
           SvgPicture.asset('lib/assets/images/slide-2.svg'),

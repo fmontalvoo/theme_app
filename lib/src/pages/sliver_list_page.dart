@@ -9,14 +9,14 @@ class SliverListPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          buildCustomScrollView(),
+          buildCustomScrollView(context),
           Positioned(bottom: -10.0, right: 0.0, child: ButtonList())
         ],
       ),
     );
   }
 
-  CustomScrollView buildCustomScrollView() {
+  CustomScrollView buildCustomScrollView(BuildContext context) {
     final items = [
       ListItem(title: 'Orange', color: Color(0xffF08F66)),
       ListItem(title: 'Family', color: Color(0xffF2A38A)),
@@ -35,7 +35,7 @@ class SliverListPage extends StatelessWidget {
       ListItem(title: 'Subscriptions', color: Color(0xffF7CDD5)),
       ListItem(title: 'Books', color: Color(0xffFCEBAF)),
     ];
-
+    final theme = Theme.of(context);
     return CustomScrollView(
       physics: BouncingScrollPhysics(),
       slivers: [
@@ -46,8 +46,8 @@ class SliverListPage extends StatelessWidget {
               maxHeight: 200.0,
               child: Container(
                   alignment: Alignment.centerLeft,
-                  color: Colors.white,
-                  child: titulo())),
+                  color: theme.scaffoldBackgroundColor,
+                  child: titulo(theme))),
         ),
         SliverList(
             delegate:
@@ -56,7 +56,7 @@ class SliverListPage extends StatelessWidget {
     );
   }
 
-  Widget titulo() {
+  Widget titulo(ThemeData theme) {
     return Column(
       children: [
         SizedBox(height: 20.0),
@@ -64,7 +64,8 @@ class SliverListPage extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
           child: Text(
             "New",
-            style: TextStyle(color: Color(0xff532128), fontSize: 50.0),
+            style: TextStyle(
+                color: theme.textTheme.bodyText2.color, fontSize: 50.0),
           ),
         ),
         Container(
