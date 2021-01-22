@@ -29,18 +29,18 @@ class __CuadradoAnimadoState extends State<_CuadradoAnimado>
     controller = AnimationController(
         vsync: this, duration: Duration(milliseconds: 4000));
 
-    moverDerecha = Tween(begin: 0.0, end: 250.0).animate(CurvedAnimation(
+    moverDerecha = Tween(begin: 0.0, end: 170.0).animate(CurvedAnimation(
         parent: controller, curve: Interval(0, 0.25, curve: Curves.bounceOut)));
 
-    moverArriba = Tween(begin: 0.0, end: -250.0).animate(CurvedAnimation(
+    moverArriba = Tween(begin: 0.0, end: -170.0).animate(CurvedAnimation(
         parent: controller,
         curve: Interval(0.25, 0.5, curve: Curves.bounceOut)));
 
-    moverIzquierda = Tween(begin: 0.0, end: -250.0).animate(CurvedAnimation(
+    moverIzquierda = Tween(begin: 0.0, end: -170.0).animate(CurvedAnimation(
         parent: controller,
         curve: Interval(0.5, 0.75, curve: Curves.bounceOut)));
 
-    moverAbajo = Tween(begin: 0.0, end: 250.0).animate(CurvedAnimation(
+    moverAbajo = Tween(begin: 0.0, end: 170.0).animate(CurvedAnimation(
         parent: controller,
         curve: Interval(0.75, 1.0, curve: Curves.bounceOut)));
 

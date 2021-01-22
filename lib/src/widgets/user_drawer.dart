@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+
+import 'package:themes_app/src/theme/theme_changer.dart';
+
 import 'package:themes_app/src/widgets/options_list.dart';
 
 class UserDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeChanger>(context);
+
     return Drawer(
       child: Container(
         child: Column(
@@ -26,13 +32,21 @@ class UserDrawer extends StatelessWidget {
               title: Text('Dark Mode'),
               leading: Icon(Icons.lightbulb_outline, color: Colors.blue),
               trailing: Switch.adaptive(
-                  value: true, activeColor: Colors.blue, onChanged: (value) {}),
+                  value: appTheme.getDarkTheme,
+                  activeColor: Colors.blue,
+                  onChanged: (value) => appTheme.setDarkTheme = value),
             ),
-            ListTile(
-              title: Text('Custom Theme'),
-              leading: Icon(Icons.add_to_home_screen, color: Colors.blue),
-              trailing: Switch.adaptive(
-                  value: true, activeColor: Colors.blue, onChanged: (value) {}),
+            SafeArea(
+              bottom: true,
+              top: false,
+              child: ListTile(
+                title: Text('Custom Theme'),
+                leading: Icon(Icons.add_to_home_screen, color: Colors.blue),
+                trailing: Switch.adaptive(
+                    value: appTheme.getCustomTheme,
+                    activeColor: Colors.blue,
+                    onChanged: (value) => appTheme.setCustomTheme = value),
+              ),
             ),
           ],
         ),
