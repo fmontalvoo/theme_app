@@ -22,10 +22,14 @@ class _PinterestMenuState extends State<PinterestMenu> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
+    double width = size.width;
+
+    if (size.width > 600) width -= 300;
+
     return Positioned(
       bottom: 30.0,
-      child: Container(
-          width: size.width, child: Align(child: _buildContainer(size))),
+      child:
+          Container(width: width, child: Align(child: _buildContainer(size))),
     );
   }
 
@@ -34,7 +38,7 @@ class _PinterestMenuState extends State<PinterestMenu> {
         duration: Duration(milliseconds: 500),
         opacity: (widget.showMenu) ? 1 : 0,
         child: Container(
-          width: size.width * .5,
+          width: size.shortestSide * .5,
           height: 70.0,
           decoration: BoxDecoration(
               color: widget.backgroundColor,

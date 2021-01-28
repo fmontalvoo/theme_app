@@ -6,15 +6,22 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:themes_app/src/widgets/header.dart';
 import 'package:themes_app/src/widgets/large_button.dart';
 
+// ignore: must_be_immutable
 class EmergencyPage extends StatelessWidget {
+  bool isLarge;
   @override
   Widget build(BuildContext context) {
+    if (MediaQuery.of(context).size.height > 600)
+      isLarge = true;
+    else
+      isLarge = false;
+
     return Scaffold(
         // backgroundColor: Colors.amber,
         body: Stack(
       children: [
         _buildItems(),
-        _buildHeader(),
+        if (isLarge) _buildHeader(),
       ],
     ));
   }
@@ -45,7 +52,7 @@ class EmergencyPage extends StatelessWidget {
 
   Widget _buildItems() {
     return Container(
-      margin: EdgeInsets.only(top: 250.0),
+      margin: EdgeInsets.only(top: isLarge ? 250.0 : 0.0),
       child: ListView(physics: BouncingScrollPhysics(), children: [
         FadeInLeft(
           child: LargeButton(
